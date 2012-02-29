@@ -173,7 +173,8 @@ Git.prototype.handle = function (req, res, next) {
                 if (self.checkout) {
                     var opts = { cwd : path.join(repoDir, repo) };
                     exec('git reset --hard', opts, function () {
-                        self.emit('push', repo);
+                        // pass query string params up to the user
+                        self.emit('push', repo, params);
                     });
                 }
                 else self.emit('push', repo)
