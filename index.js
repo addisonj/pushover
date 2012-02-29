@@ -145,7 +145,7 @@ Git.prototype.handle = function (req, res, next) {
         });
     }
     else if (req.method === 'POST'
-    && (m = req.url.match(/\/([^\/]+)\/git-(.+)/))) {
+    && (m = u.pathname.match(/\/([^\/]+)\/git-(.+)/))) {
         var repo = m[1], service = m[2];
         var repopath = self.checkout
             ? path.join(repoDir, repo, '.git')
